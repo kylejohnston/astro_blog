@@ -23,3 +23,4 @@ pnpm-debug.log*
 *.pem
 .cache
 _todo.md
+.temp.*.tailwind.config.js
