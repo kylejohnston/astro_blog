@@ -6,11 +6,16 @@ interface IElement {
 	readonly as?: keyof HTMLElementTagNameMap;
 }
 
-type SiteMeta = {
-	title: string;
-	description?: string;
-	image?: string;
-};
+// export interface Frontmatter {
+// 	title: string;
+// 	description?: string;
+// 	ogImage?: string;
+// };
+// type Frontmatter = {
+// 	title: string;
+// 	description?: string;
+// 	ogImage?: string;
+// };
 
 type PaginationLink = {
 	url: string;
@@ -21,7 +26,8 @@ type PaginationLink = {
 interface Post {
 	title: string;
 	description: string;
-	publishDate?: Date;
+	ogImage: string;
+	pubDate?: Date;
 	tags?: string[];
 }
 
@@ -30,7 +36,7 @@ export type {
 	Page,
 	Theme,
 	IElement,
-	SiteMeta,
+	// Frontmatter,
 	PaginationLink,
 	Post,
 };

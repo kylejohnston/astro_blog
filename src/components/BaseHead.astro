@@ -1,19 +1,29 @@
 ---
-import type { SiteMeta } from "@/types";
+import type { Post } from "@/types";
 import siteMeta from "src/site-meta.config";
 import "../styles/global.css";
 
-export type Props = SiteMeta;
+// export type Props = Frontmatter;
+export interface Props {
+	title?: string;
+	author?: string;
+	description?: string;
+	ogImage?: string;
+}
 
 const {
-	title,
+	title = siteMeta.title,
 	description = siteMeta.description,
-	image,
+	ogImage = siteMeta.ogImage,
 } = Astro.props as Props;
 
-const titleSeparator = "•";
+const titleSeparator = "·";
 const siteTitle = `${title} ${titleSeparator} ${siteMeta.title}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialImageURL = new URL(
+  ogImage ? ogImage : siteMeta.ogImage,
+  Astro.url.origin
+);
 ---
 
 <meta charset="utf-8" />
@@ -38,13 +48,18 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <link rel="canonical" href={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-{image && <meta property="og:image" content={image} />}
+{socialImageURL && <meta property="og:image" content={socialImageURL} />}
 
 <!-- Twitter -->
 <meta
 	property="twitter:card"
-	content={image ? "summary_large_image" : "summary"}
+	content={socialImageURL ? "summary_large_image" : "summary"}
 />
 <meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-{image && <meta property="twitter:image" content={image} />}
+{description && <meta property="twitter:description" content={description} />}
+{socialImageURL && <meta property="twitter:image" content={socialImageURL} />}
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,36,550&https://fonts.googleapis.com/css2?family=Figtree:wght@400;800&family=Roboto+Mono&display=swap">

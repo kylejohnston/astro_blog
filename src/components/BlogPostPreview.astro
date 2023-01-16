@@ -7,20 +7,23 @@ export interface Props extends IElement {
 }
 
 const { post, as: Element = "div", withDesc = false } = Astro.props as Props;
-const { publishDate } = post.frontmatter;
-const date = new Date(publishDate);
+
+const { pubDate } = post.frontmatter;
+const date = new Date(pubDate);
 const datetime = date.toISOString();
-const postDate = getLocaleTime(date, { month: "short" });
+const postDate = getLocaleTime(date, { month: "short", day: "2-digit" });
 ---
 
-<time {datetime} class="min-w-[120px] text-gray-500">{postDate}</time>
+<time {datetime} class="min-w-[120px] text-gray-500 text-base relative top-1 uppercase">{postDate}</time>
 <Element>
-	<a href={post.url} class="inline-block cactus-link line-clamp-1">
+	<a href={post.url} class="text-link font-bold">
 		{post.frontmatter.title}
 	</a>
+	{
+		withDesc && (
+			<p class="text-lg line-clamp-3 mt-1">
+				{post.frontmatter.description}
+			</p>
+			)
+		}
 </Element>
-{
-	withDesc && (
-		<q class="block italic line-clamp-3">{post.frontmatter.description}</q>
-	)
-}

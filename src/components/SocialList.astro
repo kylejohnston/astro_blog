@@ -1,37 +1,50 @@
-<div class="flex flex-wrap items-center sm:items-center gap-x-4">
-	<p>Find me on</p>
-	<ul class="flex items-center flex-1 gap-x-4 sm:flex-initial">
-		<li>
+<div class="flex flex-wrap items-center sm:items-center gap-x-6">
+	<p>Follow along:</p>
+	<ul class="relative top-1 flex items-center flex-1 gap-x-6 list-none sm:flex-initial mx-0">
+		<li class="m-0 p-0">
 			<a
 				class="inline-block p-2 sm:hover:text-link"
-				href="https://github.com/chrismwilliams/astro-cactus"
+				href="/rss.xml"
 				target="_blank"
+				title="Subscribe to my RSS feed"
 				rel="noopener noreferrer"
 			>
-				<svg
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M12.75 19.5v-.75a7.5 7.5 0 00-7.5-7.5H4.5m0-6.75h.75c7.87 0 14.25 6.38 14.25 14.25v.75M6 18.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+				</svg>
+				<span class="sr-only">RSS Feed</span>
+			</a>
+		</li>
+		<li class="m-0 p-0">
+			<a
+				class="inline-block p-2 sm:hover:text-link"
+				href="https://mastodon.online/@kylejohnston"
+				target="_blank"
+				title="Follow me on Mastodon"
+				rel="noopener noreferrer"
+			>
+				<svg 
 					class="w-6 h-6"
 					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 24 24"
+					viewBox="3 17 28 28"
 					stroke-width="1.5"
 					stroke="currentColor"
 					fill="none"
 					stroke-linecap="round"
 					stroke-linejoin="round"
 				>
-					<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-					<path
-						d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"
-					>
-					</path>
+					<path d="m 27.897714,32.529464 c -0.348758,1.79348 -3.122191,3.756098 -6.307809,4.136478 -1.661205,0.198412 -3.29657,0.38038 -5.040537,0.30051 -2.85222,-0.130649 -5.102699,-0.68089 -5.102699,-0.68089 0,0.277741 0.01717,0.542109 0.05132,0.789312 0.370803,2.814634 2.791143,2.98341 5.083725,3.062016 2.313905,0.07915 4.374103,-0.570661 4.374103,-0.570661 l 0.09523,2.092183 c 0,0 -1.618559,0.869002 -4.50168,1.028743 -1.590008,0.08746 -3.56401,-0.03993 -5.863459,-0.648363 -4.9866877,-1.320037 -5.8443054,-6.635604 -5.975496,-12.029235 -0.040116,-1.601393 -0.01536,-3.11153 -0.01536,-4.374284 0,-5.515425 3.6135232,-7.131997 3.6135232,-7.131997 1.8220308,-0.836836 4.9485588,-1.188666 8.1988688,-1.215229 h 0.07987 c 3.250309,0.02656 6.378825,0.378393 8.200856,1.215229 0,0 3.613523,1.616572 3.613523,7.131997 0,0 0.04518,4.069076 -0.503981,6.894191"></path>
+					<path d="m 9.6976785,24.298466 c 0,-0.802864 0.6508935,-1.453577 1.4535775,-1.453577 0.802864,0 1.453577,0.650713 1.453577,1.453577 0,0.802684 -0.650713,1.453577 -1.453577,1.453577 -0.802684,0 -1.4535775,-0.650893 -1.4535775,-1.453577"></path>
 				</svg>
-				<span class="sr-only">Github</span>
+				<span class="sr-only">Mastodon</span>
 			</a>
 		</li>
-		<li>
+		<li class="m-0 p-0">
 			<a
 				class="inline-block p-2 sm:hover:text-link"
-				href="https://github.com/chrismwilliams/astro-cactus"
+				href="https://twitter.com/kylejohnston/"
 				target="_blank"
+				title="Follow me on Twitter"
 				rel="noopener noreferrer"
 			>
 				<svg
@@ -51,62 +64,6 @@
 					</path>
 				</svg>
 				<span class="sr-only">Twitter</span>
-			</a>
-		</li>
-		<li>
-			<a
-				class="inline-block p-2 sm:hover:text-link"
-				href="https://github.com/chrismwilliams/astro-cactus"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				<svg
-					class="w-6 h-6"
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 24 24"
-					stroke-width="1.5"
-					stroke="currentColor"
-					fill="none"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-				>
-					<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-					<circle cx="9" cy="12" r="1"></circle>
-					<circle cx="15" cy="12" r="1"></circle>
-					<path d="M7.5 7.5c3.5 -1 5.5 -1 9 0"></path>
-					<path d="M7 16.5c3.5 1 6.5 1 10 0"></path>
-					<path
-						d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.667 3.5 -3c.667 -1.667 .5 -5.833 -1.5 -11.5c-1.457 -1.015 -3 -1.34 -4.5 -1.5l-1 2.5"
-					>
-					</path>
-					<path
-						d="M8.5 17c0 1 -1.356 3 -1.832 3c-1.429 0 -2.698 -1.667 -3.333 -3c-.635 -1.667 -.476 -5.833 1.428 -11.5c1.388 -1.015 2.782 -1.34 4.237 -1.5l1 2.5"
-					>
-					</path>
-				</svg>
-				<span class="sr-only">Discord</span>
-			</a>
-		</li>
-		<li>
-			<a
-				class="inline-block p-2 sm:hover:text-link"
-				href="mailto:me@example.com"
-			>
-				<svg
-					class="w-6 h-6"
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 24 24"
-					stroke-width="1.5"
-					stroke="currentColor"
-					fill="none"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-				>
-					<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-					<rect x="3" y="5" width="18" height="14" rx="2"></rect>
-					<polyline points="3 7 12 13 21 7"></polyline>
-				</svg>
-				<span class="sr-only">Email</span>
 			</a>
 		</li>
 	</ul>

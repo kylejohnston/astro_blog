@@ -1,5 +1,5 @@
 ---
-import type { SiteMeta } from "@/types";
+import type { Post } from "@/types";
 import BaseHead from "@/components/BaseHead";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -7,17 +7,18 @@ import SkipLink from "@/components/SkipLink";
 import siteMeta from "src/site-meta.config";
 
 export type Props = {
-	meta: SiteMeta;
+	meta: Post;
 };
 
 const {
-	meta: { title, description, image },
+	meta: { title, description, ogImage },
 } = Astro.props as Props;
+
 ---
 
 <html lang={siteMeta.lang}>
 	<head>
-		<BaseHead title={title} description={description} image={image} />
+		<BaseHead title={title} description={description} ogImage={ogImage} />
 		<script define:vars={{ siteMeta }}>
 			const root = document.documentElement;
 			const colorThemeMetaTag = document.querySelector(
@@ -42,9 +43,9 @@ const {
 	<body>
 		<SkipLink />
 		<Header />
-		<main id="main" class="flex-1">
+		<main id="main" class="">
 			<slot />
+			<Footer />
 		</main>
-		<Footer />
 	</body>
 </html>

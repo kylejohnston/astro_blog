@@ -2,44 +2,30 @@
 import PageLayout from "@/layouts/Base";
 import { Image } from "@astrojs/image/components";
 import aboutImg from "../assets/about-astro.png";
+import SocialList from "@/components/SocialList";
 
 const meta = {
 	title: "About",
-	description: "I'm a starter theme for Astro",
+	description: "I'm Kyle and this is where I write.",
 };
 ---
 
 <PageLayout meta={meta}>
-	<div class="space-y-6">
-		<h1 class="title">About</h1>
-		<p>
-			Hi, I’m a starter Astro. I’m particularly great for getting you started
-			with your own blogging website.
-		</p>
-		<div class="flex justify-center">
-			<Image src={aboutImg} alt="A cartoon cactus looking at 'Astro.build' logo"
-			/>
-		</div>
-		<p>Here are my some of my awesome built in features:</p>
-		<ul class="list-disc list-inside">
-			<li>I'm ultra fast as I'm a static site</li>
-			<li>I'm fully responsive</li>
-			<li>I come with a light and dark mode</li>
-			<li>I'm easy to customise and add additional content</li>
-			<li>I have Tailwind CSS styling</li>
-			<li>Shiki code syntax highlighting</li>
-		</ul>
-		<p>
-			Clone or fork my
-			<a
-				class="inline-block cactus-link"
-				href="https://github.com/chrismwilliams/astro-cactus"
-				target="_blank"
-				rel="noopener noreferrer"
-				aria-label="github repository"
-			>
-				repo
-			</a> if you like me!
-		</p>
+	<div class="main-content">
+		<h1>About</h1>
+			<p>I’m Kyle Johnston, a designer and creative leader with more than twenty years of broad-ranging experience, including practicing and leading design, creative strategy, and operational leadership and team development. I’ve utilized my passion for communication design, user experience design, and team leadership to successfully build, manage, and mentor diverse teams in both in-house and agency environments.</p>
+			<p>Currently, I’m a Staff Product Designer at Etsy, where I collaborate with partners in engineering, research, analytics, and product management to define product strategy and priorities and run experiments that optimize buyer experiences across Etsy’s website and native apps.</p>
+			<p>You can see samples of my professional work at <a href="https://www.kylewjohnston.com" title="My portfolio">KyleWJohnston.com</a> and <a href="https://bookshelf.kylewjohnston.com" title="My bookshelf">visit my bookshelf</a> to see what I've been reading.</p>
+			<SocialList />
+			<section class="mt-16">
+				<h2 class="mb-4 text-4xl title">Tooling</h2>
+				<ul>
+					<li><a href="https://astro.build" target="_blank" rel="noopener noreferrer" class="inline-block cactus-link">Astro</a> – a fun framework for building fast websites, faster</li>
+					<li><a href="https://github.com/kylejohnston/astro_blog" target="_blank" rel="noopener noreferrer" class="inline-block cactus-link">GitHub</a> for tracking changes and triggering builds</li>
+					<li><a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer" class="inline-block cactus-link">Netlify</a> for hosting with automated builds from GitHub commits</li>
+					<li><a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer" class="inline-block cactus-link">Tailwind CSS</a> for styling</li>
+				</ul>
+			</section>
 	</div>
+	<div class="sidebar"></div>
 </PageLayout>

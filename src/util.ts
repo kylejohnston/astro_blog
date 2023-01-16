@@ -3,8 +3,8 @@ import type { MDXInstance, Post } from "./types";
 export function sortMDByDate(posts: MDXInstance<Post>[] = []) {
 	return posts.sort(
 		(a, b) =>
-			new Date(b.frontmatter.publishDate).valueOf() -
-			new Date(a.frontmatter.publishDate).valueOf()
+			new Date(b.frontmatter.pubDate).valueOf() -
+			new Date(a.frontmatter.pubDate).valueOf()
 	);
 }
 
@@ -24,6 +24,7 @@ export function getAllTags(posts: MDXInstance<Post>[] = []) {
 	const allTags = new Set<string>();
 	posts.forEach((post) => {
 		post.frontmatter.tags?.map((tag) => allTags.add(tag.toLowerCase()));
+		// lowercase URLs
 	});
 	return [...allTags];
 }

@@ -1,34 +1,186 @@
 @tailwind base;
+@tailwind components;
+@tailwind utilities;
 @layer base {
 	:root {
 		color-scheme: light;
-		--theme-bg: 0 0% 98%;
-		--theme-link: 172 18.1% 41.2%;
-		--theme-text: 202 10.5% 14.9%;
-		--theme-accent: 351 65.9% 48.2%;
-		--theme-accent-2: 0 0% 6.7%;
-		--theme-quote: 351 65.9% 48.2%;
+		--theme-bg:       12 100% 99%; /* FFF7F5, background color */
+		--theme-link:     12 100% 50%;
+		--theme-text:     12 10.5% 14.9%;
+		--theme-accent:   12 100% 50%;
+		--theme-accent-2: 12 100% 50%;
+		--theme-quote:    12 65.9% 48.2%;
 		--theme-menu-bg: hsl(0 0% 98% / 0.85);
 	}
 
 	:root.dark {
 		color-scheme: dark;
-		--theme-bg: 210 6.5% 12.2%;
-		--theme-link: 330 49.4% 66.7%;
-		--theme-text: 220 2.9% 79.4%;
-		--theme-accent: 159 62.8% 45.3%;
-		--theme-accent-2: 0 0% 93.3%;
-		--theme-quote: 102 100% 85.7%;
-		--theme-menu-bg: hsl(210 6.5% 12.2% / 0.85);
+		--theme-bg:       72 100% 4%;     /* #101400 color */
+		--theme-link:     72 100% 50%;    
+		--theme-text:     72 100% 98%;    
+		--theme-accent:   72 100% 50%;    
+		--theme-accent-2: 72 3% 79%;   		
+		--theme-quote:    72 100% 85.7%;
+		--theme-menu-bg: hsl(72 6.5% 12.2% / 0.85);
 	}
 
 	html {
-		@apply h-full border-t-2 border-textColor scroll-smooth;
+		@apply
+		scroll-smooth;
 	}
 
 	html body {
-		@apply h-full max-w-3xl mx-auto px-8 pt-16 font-mono font-normal antialiased text-sm flex flex-col text-textColor bg-bgColor;
+		@apply
+		/* h-full */
+		/* max-w-3xl */
+		/* mx-auto */
+		/* px-8 */
+		/* pt-16 */
+		font-sans
+		font-normal
+		/* leading-normal */
+		antialiased
+		text-xl
+		flex
+		flex-col
+		md:flex-row
+		text-textColor
+		bg-bgColor;
 	}
 }
-@tailwind components;
-@tailwind utilities;
+@layer components {
+	main {
+		@apply
+		lg:grid
+		gap-8
+		lg:gap-12
+		mx-6 
+		my-8
+		lg:w-full
+		lg:grid-cols-6
+		lg:grid-rows-2
+		lg:mx-20
+		lg:my-12
+		;
+	}
+	.main-content { @apply col-span-4 row-span-full; }
+	.sidebar { @apply col-span-2 row-span-full; }
+	h1, .headline { font-size: clamp(2.813rem, 1.108rem + 8.52vw, 7.5rem) !important; @apply font-headline font-thin uppercase leading-[85%]; }
+	h2 { font-size: clamp(1.875rem, 0.739rem + 5.68vw, 5rem) !important; @apply mt-20 mb-6 font-headline font-light leading-[85%] uppercase; }
+	/* main h3 { color: var(--theme-accent) !important; @apply font-mono mb-3 text-xl uppercase; } */
+	/* main h4 { color: var(--theme-accent) !important; @apply font-mono mb-0 text-base uppercase; } */
+	p { @apply my-6 text-lg leading-relaxed md:leading-relaxed md:text-xl ; }
+	ul, ol { @apply list-disc my-8 ml-5; }
+	ul li, ol li { @apply leading-normal mb-2 text-lg md:text-xl; }
+	blockquote { @apply border-l-2 border-gray-300 pl-6 mb-7 /*[text-indent:1.5em]*/; }
+		blockquote br { content:""; @apply block mb-6; }
+	a:link, a:visited {
+		@apply
+		text-accent
+		-my-[4px]
+		-mx-[6px]
+		py-[4px]
+		px-[6px]
+		transition
+		duration-[600ms]
+		rounded
+		/* text-primary */
+		/* dark:text-bright */
+		;
+	}
+		header .content a:link, header .content a:visited { @apply text-[#101400]; }
+	a:hover, a:active { 
+		@apply
+		bg-accent
+		text-light
+		dark:text-dark
+		;
+		/* dark:bg-bright */
+		/* dark:text-[#101400]; */
+	}
+	header .content a:hover, header .content a:active {
+		@apply
+		bg-transparent
+		dark:bg-transparent
+		underline
+		underline-offset-0
+		;
+	}
+	
+	.larger { @apply text-3xl; }
+
+	header { 
+		@apply
+		bg-gradient-to-l from-primary to-bright
+		md:bg-gradient-to-t;
+	}
+	header .content {
+		@apply
+		grid
+		grid-cols-3
+		top-0
+		text-xl
+		sticky 
+		uppercase
+		py-3
+		px-6
+		md:px-3
+		md:justify-between
+		md:text-2xl
+		md:[writing-mode:vertical-rl]
+		md:[height:100vh]
+		;
+	}
+
+	header .logo {
+		@apply
+		sticky
+		md:[writing-mode:vertical-rl];
+	}
+
+	.logo-tall { width: 24px; height: auto; @apply md:block hidden mb-2; }
+	.logo-wide { width: auto; height: 24px; @apply md:hidden mr-2; }
+
+	.rss {
+		@apply
+		mb-12
+		border-t
+		border-b
+		border-gray-200
+		dark:border-gray-700
+		text-gray-500
+		dark:text-gray-400
+		;
+	}
+
+	footer { 
+		@apply
+		/* pb-5
+		pt-16 */
+		grid
+		col-span-6
+		lg:grid-cols-6
+		text-sm
+		gap-8
+		lg:gap-12
+		auto-rows-min
+		;
+	}
+	footer nav {
+		@apply
+		inline-flex
+		gap-4
+		;
+	}
+	footer nav a { @apply flex shrink; }
+
+	sup { @apply ml-1; }
+
+	#toggle-navigation-menu {
+		@apply sm:invisible sm:hidden;
+
+		svg {
+			@apply h-6 w-6;
+		}
+	}
+}

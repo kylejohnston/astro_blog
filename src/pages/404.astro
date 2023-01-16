@@ -10,10 +10,11 @@ const meta = {
 ---
 
 <PageLayout meta={meta}>
-	<h1 class="mb-6 title">404 | Oops something went wrong</h1>
-	<p class="mb-8">Please use the navigation to find your way back</p>
-	<div class="grid justify-center my-4 rotate-180">
-		<Image src={aboutImg} alt="A cartoon cactus looking at 'Astro.build' logo"
-		/>
+	<div class="main-content">
+		<h1 class="mb-6 title">Oops! Something went wrong <span class="text-gray-500">404</span></h1>
+		<p class="mb-8">
+			<a href="/" class="cactus-link">Go to the homepage</a> or use the navigation to find your way back.
+		</p>
 	</div>
+	<div class="sidebar"></div>
 </PageLayout>
