@@ -9,15 +9,8 @@ export default defineConfig({
 		shikiConfig: {
 			theme: "dracula",
 			wrap: true,
-		},
 	},
-	site: "https://www.astro-theme-cactus.netlify.app",
-	integrations: [
-		mdx({}),
-		tailwind({
-			config: { applyBaseStyles: false },
-		}),
-		image(),
-		sitemap(),
-	],
+	},
+	site: "https://kylejohnston.xyz/writing/",
+  integrations: [tailwind(), mdx(), image(), sitemap()],
 });
