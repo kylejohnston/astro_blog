@@ -1,0 +1,89 @@
+---
+import PageLayout from "@/layouts/Base";
+import BlogPostPreview from "@/components/BlogPostPreviewTags";
+import Pagination from "@/components/Paginator";
+import { getAllTags, sortMDByDate } from "src/util";
+import type { Post, Page, MDXInstance } from "@/types";
+
+export async function getStaticPaths({ paginate }) {
+	const allPosts = await Astro.glob<Post>("./*.{md,mdx}");
+	const allPostsByDate = sortMDByDate(allPosts);
+	const allTags = getAllTags(allPosts);
+	return paginate(allPostsByDate, { props: { allTags }, pageSize: 10 });
+}
+
+interface Props {
+	page: Page<MDXInstance<Post>>;
+	allTags: string[];
+}
+
+const { page, allTags } = Astro.props as Props;
+
+const meta = {
+	title: "Posts",
+	description: "All the posts I've written",
+};
+
+const paginationProps = {
+	...(page.url.prev && {
+		prevUrl: {
+			url: page.url.prev,
+			text: `← Previous Posts`,
+		},
+	}),
+	...(page.url.next && {
+		nextUrl: {
+			url: page.url.next,
+			text: `Next Posts →`,
+		},
+	}),
+};
+---
+
+<PageLayout meta={meta}>
+	<div class="main-content">
+		<h1 class="mb-6">Everything</h1>
+		<section aria-label="Blog post list">
+			<ul class="text-left space-y-8 list-none mx-0">
+				{
+					page.data.map((p) => (
+						<li class="lg:flex lg:gap-x-2 mb-8 md:mb-10 [&_q]:w-full">
+							<BlogPostPreview post={p} as="h3" withDesc />
+						</li>
+					))
+				}
+			</ul>
+			<Pagination {...paginationProps} />
+		</section>
+	</div>
+	<div class="sidebar">
+
+		{
+			allTags.length && (
+				<aside>
+					<h2>Tags</h2>
+					<ul class="flex flex-wrap gap-2 text-bgColor list-none mx-0">
+						{allTags.map((tag) => (
+							<li class="mr-3">
+								<a
+									class="flex items-center justify-center rounded-lg p-2 text-base uppercase border border-accent"
+									href={`/tags/${tag}`}
+									aria-label={`View all posts with the tag: ${tag}`}
+								>
+									#{tag}
+								</a>
+							</li>
+						))}
+					</ul>
+					<span class="mt-4 block">
+						<a class="sm:hover:text-accent" href="/tags" aria-label="View all blog categories">
+							View all →
+						</a>
+					</span>
+				</aside>
+			)
+		}
+	</div>
+
+
+</PageLayout>
