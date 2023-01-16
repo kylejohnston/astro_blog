@@ -1,0 +1,45 @@
+---
+import type { IElement, MDXInstance, Post } from "@/types";
+import { getLocaleTime } from "@/util";
+export interface Props extends IElement {
+	post: MDXInstance<Post>;
+	withDesc?: boolean;
+}
+
+const { post, as: Element = "div", withDesc = false } = Astro.props as Props;
+
+const { tags } = post.frontmatter;
+const { pubDate } = post.frontmatter;
+const date = new Date(pubDate);
+const datetime = date.toISOString();
+const postDate = getLocaleTime(date, { month: "short", day: "2-digit" });
+---
+
+<time {datetime} class="uppercase min-w-[120px] text-gray-500 text-base lg:relative lg:top-1">{postDate}</time>
+<Element>
+	<div><a href={post.url} class="text-link font-bold">
+		{post.frontmatter.title}
+	</a></div>
+	{
+		withDesc && (
+			<span class="text-lg line-clamp-3 my-1 mr-1">
+				{post.frontmatter.description}
+			</span>
+			)
+		}
+	{tags?.length && (
+		<span class="text-sm uppercase">
+			{tags.map((tag) => (
+				<a
+					class="text-link"
+					aria-label={`View more posts with the tag ${tag}`}
+					href={`/tags/${tag.toLowerCase()}`}
+				>
+					&#35;{tag}
+				</a>
+				))}
+			</span>
+		)
+	}
+
+</Element>
