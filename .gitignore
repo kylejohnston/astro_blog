@@ -20,6 +20,7 @@ pnpm-debug.log*
 .DS_Store
 
 # misc
+pnpm-lock.yaml
 *.pem
 .cache
 _todo.md
