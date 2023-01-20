@@ -1,7 +1,7 @@
 ---
 layout: "@/layouts/BlogPost"
 title: My favorite books from 2022
-pubDate: 14 JAN 2023
+pubDate: 19 JAN 2023
 description: In no particular order, these are my favorite books from 2022.
 ogImage: /images/favorite-books.jpg
 tags: ["books"]
