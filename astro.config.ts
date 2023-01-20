@@ -10,6 +10,6 @@ export default defineConfig({
 			wrap: true,
 	},
 	},
-	site: "https://kylejohnston.xyz/writing/",
+	site: "https://kylejohnston.xyz/",
   integrations: [tailwind(), image(), sitemap()],
 });
