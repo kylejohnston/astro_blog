@@ -6,10 +6,10 @@
 # Forward requests to /legacy if the browser sends a cookie 
 # named `is_legacy` or `my_other_cookie`
 [[redirects]]
-from = "/writing/*"
-to = "https://www.kylejohnston.xyz/:splat"
+from = "/*"
+to = "/writing/:splat"
+status = 200
 # from = "/*"
 # to = "/legacy/:splat"
-status = 200
 # force = false
 # conditions = {Cookie = ["is_legacy","my_other_cookie"]}
