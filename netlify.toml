@@ -5,11 +5,11 @@
 #   publish = 'dist'
 # Forward requests to /legacy if the browser sends a cookie 
 # named `is_legacy` or `my_other_cookie`
-[[redirects]]
-force = false
-from = "/*"
-to = "/writing/:splat"
-status = 301
+# [[redirects]]
+# force = false
+# from = "/*"
+# to = "/writing/:splat"
+# status = 301
 # from = "/*"
 # to = "/legacy/:splat"
 # force = false
