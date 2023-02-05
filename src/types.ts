@@ -25,7 +25,7 @@ type PaginationLink = {
 
 interface Post {
 	title: string;
-	description: string;
+	description: string|null;
 	ogImage: string;
 	pubDate?: Date;
 	tags?: string[];
