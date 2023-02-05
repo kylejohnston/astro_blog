@@ -21,8 +21,8 @@ module.exports = {
 				},
 			fontFamily: {
 				headline: ['"Roboto Flex"', 'Helvetica', 'Arial', 'sans-serif'],
-				sans: ['Figtree', 'Arial', 'sans-serif'],
-				mono: ['Roboto Mono', 'monospace'],
+				sans: ['"IBM Plex Sans"', 'Figtree', 'Arial', 'sans-serif'],
+				mono: ['"IBM Plex Mono"', 'monospace'],
 			},
 			transitionProperty: {
 				height: "height",
