@@ -1,7 +1,7 @@
 import rss from '@astrojs/rss';
 import sanitizeHtml from 'sanitize-html';
 
-const postImportResult = import.meta.glob('../**/*.md', { eager: true });
+const postImportResult = import.meta.glob('./pages/post/*.md', { eager: true });
 const posts = Object.values(postImportResult);
 
 async function getPosts() {
